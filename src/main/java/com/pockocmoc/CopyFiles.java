@@ -1,5 +1,6 @@
 package com.pockocmoc;
 
+import javax.swing.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.Objects;
@@ -8,46 +9,47 @@ import java.util.Objects;
 public class CopyFiles {
 
 
-    static void copyFiles(String sourceDir, String targetDir,
-                          String extension) {
+    static String copyFiles(String sourceDir, String targetDir,
+                            String extension, JTextArea resultArea) {
         File source = new File(sourceDir);
 
         if (!source.exists()) {
-            System.out.println("Папка " + sourceDir + " не существует.");
-            return;
+            resultArea.append("Папка " + sourceDir + " не существует.\n");
+            return sourceDir;
         }
         if (!source.isDirectory()) {
-            System.out.println(sourceDir + " не является папкой.");
-            return;
+            resultArea.append(sourceDir + " не является папкой.\n");
+            return sourceDir;
         }
         File target = new File(targetDir);
         if (!target.exists()) {
             target.mkdirs();
         }
         if (!target.isDirectory()) {
-            System.out.println(targetDir + " не является папкой.");
-            return;
+            resultArea.append(targetDir + " не является папкой.\n");
+            return sourceDir;
         }
 
         for (File f : Objects.requireNonNull(source.listFiles())) {
             if (f.isDirectory()) {
                 copyFiles(f.getAbsolutePath(),
-                        target.getAbsolutePath(), extension);
+                        target.getAbsolutePath(), extension, resultArea);
             } else if (f.getName().endsWith(extension)) {
-                System.out.println("Copying " + f.getName());
+                resultArea.append("Копирование файла " + f.getName() + "\n");
                 File copy = new File(target, f.getName());
                 try {
                     if (copy.createNewFile()) {
-                        System.out.println("Файл " + f.getName() + " создан.");
+                        resultArea.append("Файл " + f.getName() + " создан.\n");
                     } else {
-                        System.out.println("Ошибка при создании файла " +
-                                f.getName());
+                        resultArea.append("Ошибка при создании файла " +
+                                f.getName() + "\n");
                     }
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
             }
         }
+        return sourceDir;
     }
 }
 
