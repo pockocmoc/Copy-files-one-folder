@@ -7,5 +7,4 @@
 ## Пример использования
 
 Расширение файлов зависит от регистра!
-
-![Иллюстрация к проекту]([https://github.com/jon/coolproject/raw/master/image/image.png](https://github.com/pockocmoc/Copy-files-one-folder/blob/master/2023-09-22%2006-48-26.png)https://github.com/pockocmoc/Copy-files-one-folder/blob/master/2023-09-22%2006-48-26.png)
+![Иллюстрация к проекту]([https://github.com/jon/coolproject/raw/master/image/image.png])
