@@ -1,8 +1,6 @@
-# Копирование файлов с выбранным расширением
+# Copying files with the selected extension
+A Java program that copies files with the selected extension from a specified directory (passes recursively through all subfolders) to another specified directory. The files are copied into one folder. 
+File extensions are case sensitive!
 
-Программа на языке Java, которая копирует файлы с выбранным расширением из указанной директории(проходит рекурсивно по всем под папкам) в другую указанную директорию.
-Фалы копируются в одну папку.
-Расширение файлов зависит от регистра!
-
-## Пример использования
+## Usage example
 ![Иллюстрация к проекту](https://github.com/pockocmoc/Copy-files-one-folder/blob/master/2023-09-22%2006-48-26.png)
